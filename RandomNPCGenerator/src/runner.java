@@ -259,7 +259,7 @@ public class runner {
        else{
            rando.setBond(bonds[tempBond]);
        }
-
+       rando.printCharacter();
     }
 
     public int getMaxIndex(ArrayList<Integer> a){
