@@ -223,7 +223,7 @@ public class runner {
         }
         ArrayList<Integer> rolls = new ArrayList<Integer>();
         for(int i = 0; i < 6; i++){
-            int temp = d6.getStat();
+            temp = d6.getStat();
             rolls.add(temp);
         }
         int tempStats[] = new int[6];
@@ -244,7 +244,7 @@ public class runner {
        rando.setStats(tempStats);
        //finally, we set their bond
        int tempBond = d10.roll();
-       if(tempBond = 10){
+       if(tempBond == 10){
            Dice d9 = new Dice(9);
            String tempString;
            int j = d9.roll();
@@ -262,7 +262,7 @@ public class runner {
        rando.printCharacter();
     }
 
-    public int getMaxIndex(ArrayList<Integer> a){
+    public static int getMaxIndex(ArrayList<Integer> a){
         int maxIndex = 0;
         for(int i = 0; i < a.size(); i++){
             if(a.get(i) > a.get(maxIndex)){
@@ -272,7 +272,7 @@ public class runner {
         return maxIndex;
     }
 
-    public int getMinIndex(ArrayList<Integer> a){
+    public static int getMinIndex(ArrayList<Integer> a){
         int minIndex = 0;
         for(int i = 0; i < a.size(); i++){
             if(a.get(i) < a.get(minIndex)){
