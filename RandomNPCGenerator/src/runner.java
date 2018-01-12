@@ -205,10 +205,15 @@ public class runner {
         rando.setIdeal(idealsByAlignment[possibleAligns[align]][temp]);
         //setting flaws
         rando.setFlaw(flaws[d12.roll()]);
+        //setting appearances
         rando.setAppearance(appearances[d20.roll()]);
+        //setting talents
         rando.setTalent(talents[d20.roll()]);
+        //setting mannerisms
         rando.setMannerism(mannerisms[d20.roll()]);
+        //setting interaction traits
         rando.setInteractionTrait(interactions[d12.roll()]);
+        //setting their randomly assigned stats
         int goodStat = d6.roll();
         int badStat = d6.roll();
         if(badStat == goodStat) {
@@ -216,6 +221,64 @@ public class runner {
                 badStat = d6.roll();
             }
         }
+        ArrayList<Integer> rolls = new ArrayList<Integer>();
+        for(int i = 0; i < 6; i++){
+            int temp = d6.getStat();
+            rolls.add(temp);
+        }
+        int tempStats[] = new int[6];
+       for(int i = 0; i < 6; i++){
+           if(i == badStat){
+               tempStats[i] = rolls.get(getMinIndex(rolls));
+               rolls.remove(getMinIndex(rolls));
+           }
+           else if(i == goodStat){
+               tempStats[i] = rolls.get(getMaxIndex(rolls));
+               rolls.remove(getMaxIndex(rolls));
+           }
+           else{
+               tempStats[i] = rolls.get(0);
+               rolls.remove(0);
+           }
+       }
+       rando.setStats(tempStats);
+       //finally, we set their bond
+       int tempBond = d10.roll();
+       if(tempBond = 10){
+           Dice d9 = new Dice(9);
+           String tempString;
+           int j = d9.roll();
+           tempString += bonds[j];
+           int k = d9.roll();
+           if(j == k){
+               k = d9.roll();
+           }
+           tempString = tempString + " , and " + bonds[k];
+           rando.setBond(tempString);
+       }
+       else{
+           rando.setBond(bonds[tempBond]);
+       }
 
+    }
+
+    public int getMaxIndex(ArrayList<Integer> a){
+        int maxIndex = 0;
+        for(int i = 0; i < a.size(); i++){
+            if(a.get(i) > a.get(maxIndex)){
+                maxIndex = i;
+            }
+        }
+        return maxIndex;
+    }
+
+    public int getMinIndex(ArrayList<Integer> a){
+        int minIndex = 0;
+        for(int i = 0; i < a.size(); i++){
+            if(a.get(i) < a.get(minIndex)){
+                minIndex = i;
+            }
+        }
+        return minIndex;
     }
 }

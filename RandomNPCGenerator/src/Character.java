@@ -12,9 +12,7 @@ public class Character {
     private String gender;
     private String height;
     private int weight;
-    private ArrayList<Integer> stats;
-    private int highStat;
-    private int lowStat;
+    private int stats[];
     private String mannerism;
     private String appearance;
     private String talent;
@@ -38,6 +36,9 @@ public class Character {
         }
     }
     //methods
+    public void printCharacter(){
+        System.out.printf("The NPC generated is a nameless ")
+    }
 
     public String getRace() {
         return race;
@@ -71,11 +72,11 @@ public class Character {
         this.weight = weight;
     }
 
-    public ArrayList<Integer> getStats() {
+    public int[] getStats() {
         return stats;
     }
 
-    public void setStats(ArrayList<Integer> stats) {
+    public void setStats(int stats[]) {
         this.stats = stats;
     }
 
