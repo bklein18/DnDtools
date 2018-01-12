@@ -26,7 +26,7 @@ public class Dice {
         possibles[2] = rand.nextInt(6);
         possibles[3] = rand.nextInt(6);
         int minIndex = 0;
-        for(int i; i < 4; i++){
+        for(int i = 0; i < 4; i++){
             if(possibles[i] < possibles[minIndex]){
                 minIndex = i;
             }
