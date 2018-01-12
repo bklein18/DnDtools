@@ -38,7 +38,7 @@ public class Character {
     //methods
     public void printCharacter(){
         System.out.printf("The NPC generated is a nameless %s %s. They stand %s tall, and weighs %d.\nIn terms of appearance they have %s," +
-                " and they tend to %s.\nThey are %s, and their alignment is %s. Their ideal is %s, their bond is %s, and their flaw is %s.\n" +
+                " and they tend to %s.\nThey are/have/can %s, and their alignment is %s. Their ideal is %s, their bond is %s, and their flaw is %s.\n" +
                 " When interacting with others, they tend to be %s.", this.gender, this.race, this.height, this.weight, this.appearance, this.mannerism,
                 this.talent, this.alignment, this.ideal, this.bond, this.flaw, this.interactionTrait);
     }
