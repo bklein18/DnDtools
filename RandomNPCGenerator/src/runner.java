@@ -246,7 +246,7 @@ public class runner {
        int tempBond = d10.roll();
        if(tempBond == 10){
            Dice d9 = new Dice(9);
-           String tempString;
+           String tempString = "";
            int j = d9.roll();
            tempString += bonds[j];
            int k = d9.roll();
