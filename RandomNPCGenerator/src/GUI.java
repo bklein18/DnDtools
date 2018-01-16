@@ -24,7 +24,7 @@ public class GUI extends JPanel{
                 System.exit(0);
             }
         });
-        f.setContentPane(new Main());
+        f.setContentPane(new main());
         f.setSize(400,400);
         f.setVisible(true);
     }
