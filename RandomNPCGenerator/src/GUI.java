@@ -1,6 +1,6 @@
 import java.awt.*;
 import java.awt.event.*;
-import java.swing.*;
+import javax.swing.*;
 
 public class GUI extends JPanel{
     String[] type = { "Serif","SansSerif"};
