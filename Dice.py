@@ -1,3 +1,4 @@
+import random
 """
  * This rolls a n sided die where n is provided
  * Now implemented in python
@@ -6,36 +7,27 @@
  """
 
 class Dice :
-    //attributes
-    private int sides;
-    private Random rand = new Random();
-    //constructor
-    public Dice(int sides){
-        this.sides = sides;
-    }
-    //method
-    public int roll(){
-        return rand.nextInt(sides);
-    }
+    sides = 0
 
-    def getStat getStat():
-        possibles
-        possibles[0] = rand.nextInt(6);
-        possibles[1] = rand.nextInt(6);
-        possibles[2] = rand.nextInt(6);
-        possibles[3] = rand.nextInt(6);
-        int minIndex = 0;
-        for(int i = 0; i < 4; i++){
-            if(possibles[i] < possibles[minIndex]){
-                minIndex = i;
-            }
-        }
-        int stat = 0;
-        for(int i = 0; i < 4; i++){
-            if(i != minIndex){
-                stat += possibles[minIndex] + 1;
-            }
-        }
-        return stat;
-    }
+    def __init__(self, side_number):
+        self.sides = side_number
 
+    #method
+    def roll(self):
+        return random.randrange(0, self.sides)
+
+    def get_stat(self):
+        possibles = [0, 0, 0, 0]
+        possibles[0] = random.randrange(0, 6);
+        possibles[1] = random.randrange(0, 6);
+        possibles[2] = random.randrange(0, 6);
+        possibles[3] = random.randrange(0, 6);
+        min_index = 0
+        for i in possibles:
+            if i < possibles[min_index]:
+                min_index = i
+        stat = 0
+        for i in possibles:
+            if i != possibles[min_index]:
+                stat += i + 1
+        return stat

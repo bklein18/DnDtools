@@ -6,22 +6,36 @@ import random
  * @Date 01/17/18
 """
 
-class Character :
 
-    def __init__(self, race, gender, height, weight, stats, mannerism, appearance, talent, alignment, ideal, bond, flaw, interactionTrait):
-        ##character = {race, gender, height, weight, stats, mannerism, appearance, talent, alignment, ideal, bond, flaw, interactionTrait}
+class Character:
+    race = ""
+    gender = ""
+    height = ""
+    weight = 0
+    stats = [0, 0, 0, 0, 0, 0]
+    mannerism = ""
+    appearance = ""
+    talent = ""
+    alignment = ""
+    ideal = ""
+    bond = ""
+    flaw = ""
+    interactionTrait = ""
 
-        lawVChaos = random.randrange(0,3)
-        goodVEvil = random.randrange(0,3)
+    def __init__(self):
+        law_v_chaos = random.randrange(0, 3)
+        good_v_evil = random.randrange(0, 3)
         law = {"Lawful", "Neutral", "Chaotic"};
         good = {"Good", "Neutral", "Evil"};
-        if(lawVChaos == 1 && goodVEvil == 1):
-            self.__setattr__(self, alignment, "True Neutral")
+        if law_v_chaos == 1 & good_v_evil == 1:
+            self.alignment = "True Neutral"
         else:
-            self.__setattr__(self, alignment
+            self.alignment = (law[law_v_chaos] + " " + good[good_v_evil])
 
-        def printCharacter():
-                print("The NPC generated is a nameless %s %s. They stand %s tall, and weighs %d.\nIn terms of appearance they have %s," +
-                    " and they tend to %s.\nThey are/have/can %s, and their alignment is %s. Their ideal is %s, their bond is %s, and their flaw is %s.\n" +
-                    " When interacting with others, they tend to be %s.\n" % gender, race, height, weight, appearance, mannerism,
-                    talent, alignment, ideal, bond, flaw, interactionTrait);
+    def print_character(self):
+        print("The NPC generated is a nameless %s %s. They stand %s tall, and weighs %d.\nIn terms of " +
+              "appearance they have %s, and they tend to %s.\nThey are/have/can %s, and their alignment is " +
+              "%s. Their ideal is %s, their bond is %s, and their flaw is %s.\n When interacting with others," +
+              "they tend to be %s.\n" % self.gender, self.race, self.height, self.weight, self.appearance,
+              self.mannerism, self.talent, self.alignment, self.ideal, self.bond, self.flaw,
+              self.interactionTrait)
