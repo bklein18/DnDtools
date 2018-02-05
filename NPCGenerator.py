@@ -41,8 +41,9 @@ class Dice:
         possibles[2] = random.randrange(0, 6)
         possibles[3] = random.randrange(0, 6)
         min_index = 0
-        for i in possibles:
-            if i < possibles[min_index]:
+        i = 0
+        while i < possibles.__len__():
+            if possibles[i] < possibles[min_index]:
                 min_index = i
         stat = 0
         for i in possibles:
@@ -83,6 +84,24 @@ class Character:
               "they tend to be %s.\n" % self.gender, self.race, self.height, self.weight, self.appearance,
               self.mannerism, self.talent, self.alignment, self.ideal, self.bond, self.flaw,
               self.interaction_trait)
+
+
+def get_max_index(rolls):
+    max_index = 0
+    i = 0
+    while i < len(rolls):
+        if rolls[i] > rolls[i]:
+            max_index = i
+    return max_index
+
+
+def get_min_index(rolls):
+    min_index = 0
+    i = 0
+    while i < len(rolls):
+        if rolls[i] < rolls[min_index]:
+            min_index = i
+    return min_index
 
 
 def main():
@@ -151,7 +170,7 @@ def main():
         temp_height = 56 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "\'" + inches.__str__() + "\"")
         weight_mod = d4.roll()
         weight_mod += d4.roll()
         rando.weight = 110 + (height_mod * weight_mod)
@@ -162,7 +181,7 @@ def main():
         temp_height = 57 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "\'" + inches.__str__() + "\"")
         weight_mod = d4.roll()
         weight_mod += d4.roll()
         rando.weight = 110 + (height_mod * weight_mod)
@@ -173,7 +192,7 @@ def main():
         temp_height = 44 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "'" + inches.__str__() + "\"")
         weight_mod = d6.roll()
         weight_mod += d6.roll()
         rando.weight = 115 + (height_mod * weight_mod)
@@ -184,7 +203,7 @@ def main():
         temp_height = 46 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "'" + inches.__str__() + "\"")
         weight_mod = d4.roll()
         weight_mod += d4.roll()
         rando.weight = 110 + (height_mod * weight_mod)
@@ -195,7 +214,7 @@ def main():
         temp_height = 44 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "'" + inches.__str__() + "\"")
         weight_mod = d4.roll()
         if rando.race == "High Elf":
             rando.weight = 90 + (height_mod * weight_mod)
@@ -208,7 +227,7 @@ def main():
         temp_height = 31 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "'" + inches.__str__() + "\"")
         rando.weight = 35 + height_mod
 
     elif rando.race == "Dragonborn":
@@ -217,7 +236,7 @@ def main():
         temp_height = 66 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "'" + inches.__str__() + "\"")
         weight_mod = d6.roll()
         weight_mod += d6.roll()
         rando.weight = 175 + (height_mod * weight_mod)
@@ -228,7 +247,7 @@ def main():
         temp_height = 35 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "'" + inches.__str__() + "\"")
         rando.weight = 35 + height_mod
 
     else:
@@ -237,7 +256,7 @@ def main():
         temp_height = 58 + height_mod
         inches = temp_height % 12
         feet = temp_height / 12
-        rando.__setattr__(rando.height, feet + "\'" + inches + "\"")
+        rando.__setattr__(rando.height, feet.__str__() + "\'" + inches.__str__() + "\"")
         weight_mod = d6.roll()
         weight_mod += d6.roll()
         rando.weight = 140 + (height_mod * weight_mod)
@@ -297,6 +316,7 @@ def main():
             rolls[i] = rolls[get_max_index(rolls)]
         else:
             rolls[i] = rolls[i]
+        i += 1
     rando.stats = rolls
     # set their bond
     temp_bond = d10.roll()
@@ -316,21 +336,3 @@ def main():
 
 
 main()
-
-
-def get_max_index(rolls):
-    max_index = 0
-    i = 0
-    while i < len(rolls):
-        if rolls[i] > rolls[i]:
-            max_index = i
-    return max_index
-
-
-def get_min_index(rolls):
-    min_index = 0
-    i = 0
-    while i < len(rolls):
-        if rolls[i] < rolls[min_index]:
-            min_index = i
-    return min_index
